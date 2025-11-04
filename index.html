@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Italiano do Zero ao C2</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="topbar" id="top">
+    <div class="topbar__content">
+      <a class="topbar__brand" href="#top" aria-label="Italiano do Zero ao C2 - início">Italiano do Zero ao C2</a>
+      <div class="topbar__actions">
+        <button class="icon-button" id="settingsButton" type="button" aria-haspopup="dialog" aria-controls="settingsModal" title="Abrir configurações">
+          <span class="sr-only">Abrir configurações</span>
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+            <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm9-3.5a1 1 0 0 0-.76-.97l-1.63-.4a6.9 6.9 0 0 0-.46-1.13l.9-1.44a1 1 0 0 0-.12-1.21l-1.42-1.42a1 1 0 0 0-1.21-.12l-1.44.9c-.36-.16-.74-.32-1.13-.46l-.4-1.63A1 1 0 0 0 13 3h-2a1 1 0 0 0-.97.76l-.4 1.63c-.39.14-.77.3-1.13.46l-1.44-.9a1 1 0 0 0-1.21.12L4.43 6.49a1 1 0 0 0-.12 1.21l.9 1.44c-.16.36-.32.74-.46 1.13l-1.63.4A1 1 0 0 0 3 12v2a1 1 0 0 0 .76.97l1.63.4c.14.39.3.77.46 1.13l-.9 1.44a1 1 0 0 0 .12 1.21l1.42 1.42a1 1 0 0 0 1.21.12l1.44-.9c.36.16.74.32 1.13.46l.4 1.63A1 1 0 0 0 11 21h2a1 1 0 0 0 .97-.76l.4-1.63c.39-.14.77-.3 1.13-.46l1.44.9a1 1 0 0 0 1.21-.12l1.42-1.42a1 1 0 0 0 .12-1.21l-.9-1.44c.16-.36.32-.74.46-1.13l1.63-.4a1 1 0 0 0 .76-.97v-2Z" />
+          </svg>
+        </button>
+        <button class="topbar__button" id="loginButton" type="button">Entrar</button>
+        <div class="topbar__user" id="userMenu" hidden>
+          <span class="topbar__avatar" id="userAvatar" aria-hidden="true"></span>
+          <div class="topbar__user-info">
+            <span class="topbar__user-name" id="userName"></span>
+            <button class="topbar__link" id="logoutButton" type="button">Sair</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1>Italiano do Zero ao C2</h1>
+      <p>Curso autodidata baseado no CEFR com metodologia comunicativa, gramática em espiral e tarefas guiadas.</p>
+      <a class="hero__cta" href="#guia-uso">Comece agora</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="guia-uso" class="card">
+      <h2>Guia de Uso</h2>
+      <ul>
+        <li><strong>Ritmo sugerido:</strong> 5–7h por semana. Cada capítulo = 1–2 sessões.</li>
+        <li><strong>Escuta simulada:</strong> leia o roteiro cronometrando (marcadores ⏱️). Repita 2–3 vezes; faça shadowing na terceira.</li>
+        <li><strong>SRS:</strong> crie 15–25 flashcards por capítulo com vocabulário e frases modelo.</li>
+        <li><strong>Avaliação:</strong> testes ao final de cada nível com gabarito e rubricas.</li>
+      </ul>
+    </section>
+
+    <section id="descritores" class="card">
+      <h2>Descritores CEFR por Nível</h2>
+      <div class="grid grid--2cols">
+        <div>
+          <h3>A1</h3>
+          <p>Compreender e usar expressões cotidianas; interações simples se o interlocutor falar devagar.</p>
+        </div>
+        <div>
+          <h3>A2</h3>
+          <p>Lidar com tarefas simples e rotineiras; descrever aspectos do próprio passado e ambiente.</p>
+        </div>
+        <div>
+          <h3>B1</h3>
+          <p>Compreender pontos principais de assuntos familiares; produzir textos simples; lidar com situações em viagem.</p>
+        </div>
+        <div>
+          <h3>B2</h3>
+          <p>Compreender ideias principais de textos complexos; interagir com fluência razoável; produzir textos claros e detalhados.</p>
+        </div>
+        <div>
+          <h3>C1</h3>
+          <p>Compreender textos longos e exigentes; exprimir ideias de forma fluente e espontânea; uso flexível da língua.</p>
+        </div>
+        <div>
+          <h3>C2</h3>
+          <p>Compreender praticamente tudo que ouve ou lê; resumir informações de fontes diferentes; expressar-se com precisão.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sumario" class="card">
+      <h2>Sumário</h2>
+      <p>Explore o conteúdo organizado por níveis CEFR. Capítulos marcados como <strong>completo</strong> trazem objetivo, vocabulário, gramática com exemplos, diálogo com tradução, exercícios, gabarito e dica cultural. Os capítulos marcados como <strong>estrutura</strong> estão modelados para expansão seguindo o mesmo molde.</p>
+    </section>
+
+    <section id="niveis" class="levels">
+      <article class="level">
+        <header class="level__header">
+          <h2>A1 — Usuário iniciante</h2>
+          <p>Fundamentos da comunicação: saudações, informações pessoais e rotinas simples.</p>
+        </header>
+        <div class="accordion">
+          <button class="accordion__trigger" aria-expanded="false">Cap. 1 Cumprimentos e informações pessoais <span class="tag tag--complete">completo</span></button>
+          <div class="accordion__panel">
+            <h3>Objetivo</h3>
+            <p>Saudar, apresentar-se, pedir e dar nome, nacionalidade e telefone; reconhecer sons básicos.</p>
+            <h3>Vocabulário Temático</h3>
+            <p>Saudações: ciao, buongiorno, buonasera, arrivederci, per favore, grazie, prego, scusa/scusi.</p>
+            <p>Dados pessoais: nome, cognome, età, numero di telefono, email, indirizzo, nazionalità.</p>
+            <h3>Gramática</h3>
+            <ul>
+              <li>Verbo <em>essere</em> (ser/estar): io sono, tu sei, lui/lei è, noi siamo, voi siete, loro sono.</li>
+              <li>Verbo <em>chiamarsi</em> (chamar-se): mi chiamo, ti chiami, si chiama…</li>
+              <li>Frases úteis: «Come ti chiami?», «Di dove sei?», «Quanti anni hai?» (usar <em>avere</em> para idade: <em>Ho 29 anni</em>).</li>
+            </ul>
+            <h3>Exemplos</h3>
+            <ul>
+              <li><em>Io sono brasiliana.</em> / <em>Io sono brasiliano.</em></li>
+              <li><em>Mi chiamo Ana. E tu come ti chiami?</em></li>
+              <li><em>Di dove sei?</em> — <em>Sono di Recife.</em> / <em>Sono brasiliano.</em></li>
+              <li><em>Qual è il tuo numero di telefono?</em> — <em>È 349 555 0123.</em></li>
+            </ul>
+            <h3>Diálogo Contextualizado</h3>
+            <div class="dialogue">
+              <h4>Al bar ⏱️ ~30s</h4>
+              <p><strong>A:</strong> Ciao! Buongiorno.<br>
+                 <strong>B:</strong> Ciao! Come ti chiami?<br>
+                 <strong>A:</strong> Mi chiamo Ana. E tu?<br>
+                 <strong>B:</strong> Sono Luca. Piacere!<br>
+                 <strong>A:</strong> Piacere! Di dove sei?<br>
+                 <strong>B:</strong> Sono di Milano. E tu?<br>
+                 <strong>A:</strong> Sono brasiliana, di Salvador.<br>
+                 <strong>B:</strong> Che bello! Hai WhatsApp?<br>
+                 <strong>A:</strong> Sì, il mio numero è 349 555 0123.</p>
+              <h4>Tradução</h4>
+              <p><strong>A:</strong> Oi! Bom dia.<br>
+                 <strong>B:</strong> Oi! Como você se chama?<br>
+                 <strong>A:</strong> Eu me chamo Ana. E você?<br>
+                 <strong>B:</strong> Sou o Luca. Prazer!<br>
+                 <strong>A:</strong> Prazer! De onde você é?<br>
+                 <strong>B:</strong> Sou de Milão. E você?<br>
+                 <strong>A:</strong> Sou brasileira, de Salvador.<br>
+                 <strong>B:</strong> Que legal! Você tem WhatsApp?<br>
+                 <strong>A:</strong> Sim, meu número é 349 555 0123.</p>
+            </div>
+            <h3>Exercícios</h3>
+            <ol>
+              <li>Preencher lacunas (<em>essere/chiamarsi/avere</em>)
+                <ol type="a">
+                  <li>Io ____ Maria. (<em>mi chiamo</em>)</li>
+                  <li>Noi ____ di Roma. (<em>siamo</em>)</li>
+                  <li>Lui ____ 22 anni. (<em>ha</em>)</li>
+                  <li>Voi come ____? (<em>vi chiamate</em>)</li>
+                </ol>
+              </li>
+              <li>Escolha múltipla: Qual é correto?
+                <ul>
+                  <li>a) <em>Sono brasiliana.</em></li>
+                  <li>b) <em>Sono brasiliano.</em></li>
+                  <li><em>Respostas possíveis:</em> a) para mulher; b) para homem.</li>
+                </ul>
+              </li>
+              <li>Produção de frases: apresente-se em 4 frases (nome, cidade, nacionalidade, telefone).</li>
+              <li>Escuta simulada: leia o diálogo em voz alta 3 vezes. Na 3ª, faça shadowing focando nas consoantes duplas e no ritmo silábico.</li>
+            </ol>
+            <h3>Gabarito</h3>
+            <ul>
+              <li>a) <em>mi chiamo</em>; b) <em>siamo</em>; c) <em>ha</em>; d) <em>vi chiamate</em>.</li>
+              <li>Depende do gênero do falante.</li>
+              <li>Resposta pessoal.</li>
+            </ul>
+            <h3>Dica Cultural</h3>
+            <p>Em contextos informais, <em>Ciao</em> serve para oi e tchau. Em situações formais, prefira <em>Buongiorno/Buonasera</em> e <em>Arrivederci</em>.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 2 Alfabeto, números e soletração <span class="tag tag--complete">completo</span></button>
+          <div class="accordion__panel">
+            <h3>Objetivo</h3>
+            <p>Soletrar nomes e e-mails; dizer números 0–20; perguntar «Como se escreve?».</p>
+            <h3>Vocabulário</h3>
+            <p>Letras do alfabeto, <em>numero</em>, <em>indirizzo email</em>, <em>trattino (-)</em>, <em>punto (.)</em>, <em>chiocciola (@)</em>.</p>
+            <h3>Gramática e Pronúncia</h3>
+            <ul>
+              <li>Alfabeto A–Z; letras estrangeiras (J, K, W, X, Y).</li>
+              <li>C/G + e/i → [t͡ʃ]/[d͡ʒ]; CH/GH + e/i → [k]/[g]; SC + e/i → [ʃ]; GLI [ʎ]; GN [ɲ].</li>
+              <li>Números 0–20: <em>zero, uno, due, tre, quattro, cinque, sei, sette, otto, nove, dieci… venti</em>.</li>
+            </ul>
+            <h3>Exemplos</h3>
+            <ul>
+              <li>«<em>Come si scrive poesia?</em>» — <em>P-O-E-S-I-A.</em></li>
+              <li>«<em>Qual è il tuo indirizzo email?</em>» — <em>ana.silva@mail.it</em>.</li>
+            </ul>
+            <h3>Diálogo</h3>
+            <div class="dialogue">
+              <h4>All’ufficio informazioni ⏱️ ~25s</h4>
+              <p><strong>A:</strong> Mi scusi, come si scrive Ghézzani?<br>
+                 <strong>B:</strong> G-H-E-Z-Z-A-N-I.<br>
+                 <strong>A:</strong> Grazie. E il numero dell’autobus?<br>
+                 <strong>B:</strong> È il venti.</p>
+              <h4>Tradução</h4>
+              <p><strong>A:</strong> Com licença, como se escreve Ghézzani?<br>
+                 <strong>B:</strong> G-H-E-Z-Z-A-N-I.<br>
+                 <strong>A:</strong> Obrigado. E o número do ônibus?<br>
+                 <strong>B:</strong> É o vinte.</p>
+            </div>
+            <h3>Exercícios</h3>
+            <ol>
+              <li>Soletrar 5 palavras: <em>scuola</em>, <em>famiglia</em>, <em>gnocchi</em>, <em>Bologna</em>, <em>zanzara</em>.</li>
+              <li>Completar com números por extenso: 7, 13, 18, 20.</li>
+              <li>Escuta simulada: repita o diálogo, marcando as letras com fonemas difíceis (GLI/SC/GN).</li>
+            </ol>
+            <h3>Gabarito</h3>
+            <ul>
+              <li>Respostas modelo: <em>S-C-U-O-L-A</em>; <em>F-A-M-I-GL-I-A</em>…</li>
+              <li><em>sette, tredici, diciotto, venti</em>.</li>
+            </ul>
+            <h3>Dica Cultural</h3>
+            <p>Sobrenomes italianos revelam regiões: -ini/-ani (Toscana/Emília), -o (Sul), -i (Norte), com muitas exceções.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 3 Objetos e artigos <span class="tag tag--complete">completo</span></button>
+          <div class="accordion__panel">
+            <h3>Objetivo</h3>
+            <p>Usar artigos indeterminados e pedir/emprestar objetos.</p>
+            <h3>Vocabulário</h3>
+            <p><em>telefono, chiave, tessera, penna, biglietto, portafoglio, zaino</em>.</p>
+            <h3>Gramática</h3>
+            <ul>
+              <li>Artigos indeterminados: <em>un</em> (m. geral), <em>uno</em> (m. antes de s+consoante, z, ps, gn…), <em>una</em> (f.), <em>un’</em> (f. + vogal).</li>
+              <li>Perguntas: «<em>Hai/Ha una penna?</em>»</li>
+            </ul>
+            <h3>Exemplos</h3>
+            <ul>
+              <li><em>Ho uno zaino e una bottiglia.</em></li>
+              <li><em>C’è un’uscita lì.</em></li>
+            </ul>
+            <h3>Diálogo</h3>
+            <div class="dialogue">
+              <h4>In classe ⏱️ ~20s</h4>
+              <p><strong>A:</strong> Hai una penna?<br>
+                 <strong>B:</strong> Sì, ne ho una.<br>
+                 <strong>A:</strong> Grazie!<br>
+                 <strong>B:</strong> Prego.</p>
+            </div>
+            <h3>Exercícios</h3>
+            <ol>
+              <li>Complete com <em>un/uno/una/un’</em>: ___ studente, ___ amica, ___ zaino, ___ uscita.</li>
+              <li>Produza 4 frases com objetos que você tem.</li>
+              <li>Escuta simulada: leia o diálogo adicionando geminação quando indicado (penna, uscita).</li>
+            </ol>
+            <h3>Gabarito</h3>
+            <p><em>uno studente; un’amica; uno zaino; un’uscita.</em></p>
+            <h3>Dica Cultural</h3>
+            <p>Emprestar caneta? Normalíssimo. Agradeça com <em>Grazie</em> e feche com <em>Prego</em>.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 4 Há/Tem e espaços cotidianos <span class="tag tag--complete">completo</span></button>
+          <div class="accordion__panel">
+            <h3>Objetivo</h3>
+            <p>Dizer o que há/tem e descrever cômodos simples.</p>
+            <h3>Vocabulário</h3>
+            <p><em>stanza, cucina, bagno, tavolo, sedia, finestra, porta, letto, armadio</em>.</p>
+            <h3>Gramática</h3>
+            <ul>
+              <li><em>C’è</em> (há/tem – singular) / <em>Ci sono</em> (plural).</li>
+              <li>Negação com <em>non</em>: «<em>Non c’è… / Non ci sono…</em>»</li>
+            </ul>
+            <h3>Diálogo</h3>
+            <div class="dialogue">
+              <h4>Affitto ⏱️ ~25s</h4>
+              <p><strong>A:</strong> C’è una cucina grande?<br>
+                 <strong>B:</strong> Sì, c’è. E ci sono due finestre.<br>
+                 <strong>A:</strong> Bene, ma non c’è il balcone?<br>
+                 <strong>B:</strong> No, non c’è.</p>
+            </div>
+            <h3>Exercícios</h3>
+            <ol>
+              <li>Transforme: <em>C’è una sedia</em> → negativo; plural.</li>
+              <li>Descreva seu quarto (5 frases).</li>
+            </ol>
+            <h3>Gabarito</h3>
+            <p><em>Non c’è una sedia.</em> / <em>Ci sono delle sedie.</em></p>
+            <h3>Dica Cultural</h3>
+            <p>Apartamentos italianos valorizam <em>cucina abitabile</em>. Balcões nem sempre são padrão.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 5 Perguntas básicas e direções <span class="tag tag--complete">completo</span></button>
+          <div class="accordion__panel">
+            <h3>Objetivo</h3>
+            <p>Fazer perguntas simples e pedir direções.</p>
+            <h3>Vocabulário</h3>
+            <p><em>dove, quando, quanto, perché, come</em>; <em>destra/sinistra/dritto</em>; <em>stazione, fermata</em>.</p>
+            <h3>Gramática</h3>
+            <ul>
+              <li>Interrogativas: <em>Come? Che cosa? Dove? Quando? Quanto? Perché?</em></li>
+              <li>Preposições simples: <em>a, in, di, con, su, per, tra/fra</em>.</li>
+            </ul>
+            <h3>Diálogo</h3>
+            <div class="dialogue">
+              <h4>In strada ⏱️ ~30s</h4>
+              <p><strong>A:</strong> Scusi, dov’è la stazione?<br>
+                 <strong>B:</strong> Sempre dritto e poi a sinistra.<br>
+                 <strong>A:</strong> È lontana?<br>
+                 <strong>B:</strong> No, è a cinque minuti.</p>
+            </div>
+            <h3>Exercícios</h3>
+            <ol>
+              <li>Complete com a preposição: <em>Vado __ Roma</em>; <em>Sono __ Italia</em>; <em>Vengo __ Brasile</em>.</li>
+              <li>Produção: peça direções para a <em>fermata dell’autobus</em>.</li>
+            </ol>
+            <h3>Gabarito</h3>
+            <p><em>a</em>; <em>in</em>; <em>dal</em> (di + il) / <em>dal Brasile</em>.</p>
+            <h3>Dica Cultural</h3>
+            <p>Italianos gesticulam! Indicar com a mão e falar devagar ajuda muito na rua.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 6 Rotina simples e preferências <span class="tag tag--complete">completo</span></button>
+          <div class="accordion__panel">
+            <h3>Objetivo</h3>
+            <p>Falar de rotina diária e gostos.</p>
+            <h3>Vocabulário</h3>
+            <p><em>svegliarsi, lavorare, studiare, mangiare, bere, andare, tornare, guardare, leggere</em>; <em>caffè, pane, frutta</em>.</p>
+            <h3>Gramática</h3>
+            <ul>
+              <li>Presente de regulares (-are/-ere/-ire).</li>
+              <li><em>Piacere</em>: <em>mi piace</em> + singular; <em>mi piacciono</em> + plural.</li>
+            </ul>
+            <h3>Diálogo</h3>
+            <div class="dialogue">
+              <h4>Giornata ⏱️ ~30s</h4>
+              <p><strong>A:</strong> A che ora ti svegli?<br>
+                 <strong>B:</strong> Mi sveglio alle sette, poi bevo un caffè e vado al lavoro.<br>
+                 <strong>A:</strong> Ti piace leggere la sera?<br>
+                 <strong>B:</strong> Sì, mi piacciono i romanzi.</p>
+            </div>
+            <h3>Exercícios</h3>
+            <ol>
+              <li>Conjugue: <em>studiare</em> (io/tu/lui/lei).</li>
+              <li>Complete: <em>Mi piace il __ (caffè).</em> / <em>Mi piacciono le __ (frutta → le mele).</em></li>
+              <li>Escreva sua rotina em 5 frases.</li>
+            </ol>
+            <h3>Gabarito</h3>
+            <p><em>studio, studi, studia</em>; <em>caffè</em>; <em>mele</em>.</p>
+            <h3>Dica Cultural</h3>
+            <p>Café da manhã italiano é leve: <em>caffè</em> + <em>cornetto</em>. Salgado só mais tarde.</p>
+          </div>
+
+          <div class="level__revision">
+            <h3>Revisão A1 + Teste de autoavaliação</h3>
+            <p><strong>Parte A – Vocabulário e gramática (20 itens):</strong> completar com <em>essere/avere</em>, artigos indeterminados, <em>C’è/Ci sono</em>, preposições básicas.</p>
+            <p><strong>Parte B – Leitura curta:</strong> anúncio de quarto (100–120 palavras).</p>
+            <p><strong>Parte C – Produção:</strong> apresentação (120–150 palavras).</p>
+            <p><strong>Parte D – Escuta simulada:</strong> roteiro de anúncio com números e horários.</p>
+            <p><strong>Gabarito resumido:</strong> chave dos itens objetivos + roteiro anotado. <strong>Rubrica:</strong> correção, coesão, amplitude lexical e pronúncia.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="level">
+        <header class="level__header">
+          <h2>A2 — Usuário básico</h2>
+          <p>Aprofunde descrições, narração simples e modais essenciais.</p>
+        </header>
+        <div class="accordion">
+          <button class="accordion__trigger" aria-expanded="false">Cap. 1 Passado recente e narração simples <span class="tag tag--complete">completo</span></button>
+          <div class="accordion__panel">
+            <h3>Objetivo</h3>
+            <p>Usar <em>passato prossimo</em> para ações concluídas e narrar fins de semana.</p>
+            <h3>Vocabulário</h3>
+            <p><em>ieri, l’altro ieri, settimana scorsa, stamattina</em>; <em>andare, uscire, mangiare, vedere, comprare, dormire</em>; <em>stazione, centro, cinema</em>.</p>
+            <h3>Gramática</h3>
+            <ul>
+              <li><em>Passato prossimo</em> com <em>avere/essere</em>: <em>ho mangiato</em>; <em>sono andata/andato</em>.</li>
+              <li>Acordo com <em>essere</em>: <em>andata/andato</em>; <em>usciti/uscite</em>.</li>
+              <li>Marcadores temporais: <em>ieri</em>, <em>alle 8</em>, <em>sabato scorso</em>.</li>
+            </ul>
+            <h3>Exemplos</h3>
+            <ul>
+              <li><em>Ieri sono andata al cinema e ho visto un film.</em></li>
+              <li><em>Sabato abbiamo cenato a casa.</em></li>
+            </ul>
+            <h3>Diálogo</h3>
+            <div class="dialogue">
+              <h4>Il weekend ⏱️ ~35s</h4>
+              <p><strong>A:</strong> Che cosa hai fatto ieri?<br>
+                 <strong>B:</strong> Sono uscito con amici e abbiamo mangiato una pizza.<br>
+                 <strong>A:</strong> A che ora sei tornata?<br>
+                 <strong>B:</strong> Verso mezzanotte, poi ho dormito subito!</p>
+            </div>
+            <h3>Exercícios</h3>
+            <ol>
+              <li>Transforme para <em>passato prossimo</em>: <em>Noi andiamo al centro.</em></li>
+              <li>Complete com <em>avere/essere</em>: <em>Maria ___ partita;</em> <em>Noi ___ comprato.</em></li>
+              <li>Produção: narre seu último sábado (6–8 frases).</li>
+            </ol>
+            <h3>Gabarito</h3>
+            <p><em>Siamo andati al centro</em>; <em>è</em>; <em>abbiamo</em>.</p>
+            <h3>Dica Cultural</h3>
+            <p>Pizza na Itália costuma ser individual. Dividir? Só se pedir <em>mezze porzioni</em> ou for <em>pizza al taglio</em>.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 2 Imperfetto vs. passato prossimo <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Comparar hábitos e eventos pontuais; exercícios de contraste; diálogo «Quando ero piccola…». Inclua objetivo, vocabulário, gramática, diálogo com tradução, exercícios, gabarito e dica cultural.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 3 Pronomes diretos/indiretos; ci/ne <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Pronomes combinados e microdiálogos de compra. Desenvolva seguindo o molde completo.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 4 Imperativo e pedidos <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Imperativo afirmativo e negativo, pedidos formais com «<em>per favore</em>», «<em>potrebbe…?</em>».</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 5 Futuro e planos <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Foco em <em>futuro semplice</em>, planos e previsões; marcadores <em>domani</em>, <em>fra due giorni</em>.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 6 Saúde e serviços <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Sintomas, farmácia, consultas; modais <em>dovere/potere/volere</em>; roteiro de escuta simulada.</p>
+          </div>
+
+          <div class="level__revision">
+            <h3>Revisão A2 + Teste de autoavaliação</h3>
+            <p>30 itens objetivos (tempos, pronomes, imperativo, futuro); leitura 180–220 palavras; produção 180–220 palavras; escuta simulada sobre farmácia. Inclua gabarito e rubrica.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="level">
+        <header class="level__header">
+          <h2>B1 — Usuário independente</h2>
+          <p>Consolide argumentação básica, discurso indireto e produção formal inicial.</p>
+        </header>
+        <div class="accordion">
+          <button class="accordion__trigger" aria-expanded="false">Cap. 1 Opiniões e conectores <span class="tag tag--complete">completo</span></button>
+          <div class="accordion__panel">
+            <h3>Objetivo</h3>
+            <p>Dar opinião, justificar e contra-argumentar de forma simples.</p>
+            <h3>Vocabulário</h3>
+            <p><em>secondo me, a mio parere, penso che, trovo che</em>; <em>però, quindi, inoltre, invece, anche se</em>.</p>
+            <h3>Gramática</h3>
+            <ul>
+              <li>Estruturas opinativas com indicativo: «<em>Secondo me è utile…</em>»</li>
+              <li>Introdução ao <em>congiuntivo presente</em> após <em>penso che / credo che</em>.</li>
+              <li>Conectores de coesão textual.</li>
+            </ul>
+            <h3>Diálogo</h3>
+            <div class="dialogue">
+              <h4>In ufficio ⏱️ ~40s</h4>
+              <p><strong>A:</strong> Secondo me lavorare da casa è più produttivo.<br>
+                 <strong>B:</strong> Capisco, però in ufficio comunichiamo melhor.<br>
+                 <strong>A:</strong> Vero. Quindi possiamo fare due giorni a casa e tre in ufficio.<br>
+                 <strong>B:</strong> Mi sembra una boa ideia.</p>
+            </div>
+            <h3>Exercícios</h3>
+            <ol>
+              <li>Reescreva unindo frases com conectores dados.</li>
+              <li>Complete com <em>penso che/credo che/secondo me</em>.</li>
+              <li>Produção: opinião (120–150 palavras) sobre estudar online.</li>
+            </ol>
+            <h3>Gabarito</h3>
+            <p>Modelos com conectores corretos; respostas variáveis justificadas.</p>
+            <h3>Dica Cultural</h3>
+            <p>Discussões italianas são vivas, mas valorizam <em>argomentazione</em>: traga exemplos e feche com uma proposta.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 2 Congiuntivo presente em frases úteis <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Explorar expressões de dúvida/emoção com <em>congiuntivo presente</em>. Adicione vocabulário temático e exercícios guiados.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 3 Discurso indireto e gerúndio <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Converter diálogo em relato, usar gerúndio para simultaneidade; inclua textos modelo.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 4 Passiva básica; si impersonale <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Aplicações em manuais e notícias; exercícios transformando voz ativa em passiva/impessoal.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 5 Trabalho/estudo e entrevistas <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Currículos, entrevistas e formalidade. Inclua roteiros de perguntas e respostas.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 6 Carta/e-mail formal simples <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Saudações, despedidas, fórmulas de polidez; modelo anotado.</p>
+          </div>
+
+          <div class="level__revision">
+            <h3>Revisão B1 + Teste de autoavaliação</h3>
+            <p>30 itens (conectores, <em>congiuntivo</em> básico, passiva/impersonale); leitura 220–280 palavras; produção 200–240 palavras; escuta simulada de reunião curta. Inclua gabarito e rubrica.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="level">
+        <header class="level__header">
+          <h2>B2 — Usuário independente avançado</h2>
+          <p>Domine hipóteses complexas, estilos textuais e debates.</p>
+        </header>
+        <div class="accordion">
+          <button class="accordion__trigger" aria-expanded="false">Cap. 1 Hipóteses e nuance <span class="tag tag--complete">completo</span></button>
+          <div class="accordion__panel">
+            <h3>Objetivo</h3>
+            <p>Expressar condições e resultados prováveis/hipotéticos e gerir nuance.</p>
+            <h3>Vocabulário</h3>
+            <p><em>a patto che, purché, a meno che</em>; <em>forse, probabilmente</em>; <em>in caso, qualora</em>.</p>
+            <h3>Gramática</h3>
+            <ul>
+              <li>Período <em>ipotetico</em> tipo 1 (reale) e tipo 2 (possibile).</li>
+              <li><em>Congiuntivo imperfetto</em> em orações condicionais com locuções.</li>
+            </ul>
+            <h3>Diálogo</h3>
+            <div class="dialogue">
+              <h4>Viaggio ⏱️ ~45s</h4>
+              <p><strong>A:</strong> Se troviamo voli economici, partiamo domani.<br>
+                 <strong>B:</strong> A patto che ci diano le ferie!<br>
+                 <strong>A:</strong> In caso contrario, andremo il mese prossimo.<br>
+                 <strong>B:</strong> D’accordo, purché non costi troppo.</p>
+            </div>
+            <h3>Exercícios</h3>
+            <ol>
+              <li>Transforme período tipo 1 em tipo 2.</li>
+              <li>Complete com <em>purché/a patto che/a meno che</em>.</li>
+              <li>Produção: plano com alternativas (180–220 palavras).</li>
+            </ol>
+            <h3>Gabarito</h3>
+            <p>Modelos possíveis com verbos corretos.</p>
+            <h3>Dica Cultural</h3>
+            <p>Companhias low-cost na Itália usam aeroportos secundários (Bergamo para Milão, Ciampino para Roma). Atenção às regras de bagagem.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 2 Congiuntivo imperfetto/trapassato <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Prática de <em>consecutio temporum</em> com exemplos em contexto.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 3 Ipotetiche tipo 2–3; si passivante <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Aprofunde hipóteses irreais e estilo jornalístico com <em>si passivante</em>.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 4 Relativos e nominalização <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Uso de <em>cui, il quale</em> e técnicas de densidade textual.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 5 Debates e resenhas <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Coesão argumentativa, escalada de evidências e vocabulário crítico.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 6 Registro e estilo <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Contraste formal vs. coloquial e uso de mitigadores; tarefas de reescrita.</p>
+          </div>
+
+          <div class="level__revision">
+            <h3>Revisão B2 + Teste de autoavaliação</h3>
+            <p>40 itens; leitura analítica (~350 palavras); produção 280–340 palavras; escuta simulada de debate curto. Gabarito e rubrica detalhados.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="level">
+        <header class="level__header">
+          <h2>C1 — Proficiência eficaz</h2>
+          <p>Aprimore coesão avançada, síntese e gestão de ambiguidade.</p>
+        </header>
+        <div class="accordion">
+          <button class="accordion__trigger" aria-expanded="false">Cap. 1 Coesão avançada e retórica <span class="tag tag--complete">completo</span></button>
+          <div class="accordion__panel">
+            <h3>Objetivo</h3>
+            <p>Estruturar textos com progressão lógica, ênfase e matizes.</p>
+            <h3>Vocabulário</h3>
+            <p><em>ciò nonostante, per quanto, nondimeno, per di più, al contempo, in definitiva</em>.</p>
+            <h3>Gramática e Estilo</h3>
+            <ul>
+              <li>Paralelismo sintático; tema/rema; foco por deslocamento.</li>
+              <li>Conectores contrastivos e marcadores de síntese.</li>
+            </ul>
+            <h3>Monólogo Modelo</h3>
+            <div class="dialogue">
+              <h4>Breve intervento ⏱️ ~60s</h4>
+              <p>«L’innovazione, per quanto rischiosa, è necessaria. Ciononostante, va governata: altrimenti genera squilibri. In definitiva, ciò che conta è l’accesso equo.»</p>
+            </div>
+            <h3>Exercícios</h3>
+            <ol>
+              <li>Reescrita com conectores avançados.</li>
+              <li>Identifique tema/rema em 5 frases.</li>
+              <li>Produção: mini-ensaio (300–350 palavras).</li>
+            </ol>
+            <h3>Gabarito</h3>
+            <p>Modelos comentados com justificativa de conectores e análise de tema/rema.</p>
+            <h3>Dica Cultural</h3>
+            <p>Conferências italianas prezam síntese: concluir bem é tão importante quanto argumentar.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 2 Sintetizar fontes e paráfrase <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Integre múltiplas fontes, destaque estratégias de paráfrase e citação.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 3 Variedade regional e ironia <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Explorar registros regionais e leitura de ironia; exercícios de interpretação.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 4 Escrita acadêmica <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Organização de artigos, abstracts e referências.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 5 Apresentações longas <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Estratégias para Q&amp;A, suporte visual e controle de tempo.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 6 Gestão de ambiguidade <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Estratégias de reparo e negociação de significado em contextos complexos.</p>
+          </div>
+
+          <div class="level__revision">
+            <h3>Revisão C1 + Teste de autoavaliação</h3>
+            <p>40 itens; leitura crítica (~450 palavras); produção 400–500 palavras; escuta simulada de palestra resumida. Gabarito e rubrica detalhados.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="level">
+        <header class="level__header">
+          <h2>C2 — Domínio pleno</h2>
+          <p>Alcance precisão estilística máxima e autonomia completa.</p>
+        </header>
+        <div class="accordion">
+          <button class="accordion__trigger" aria-expanded="false">Cap. 1 Precisão estilística e microtonalidades <span class="tag tag--complete">completo</span></button>
+          <div class="accordion__panel">
+            <h3>Objetivo</h3>
+            <p>Escolher entre sinônimos próximos com efeitos de estilo e controlar tom com precisão.</p>
+            <h3>Vocabulário e Estilo</h3>
+            <p><em>sfumatura, registro, connotazione, allusione, ironia</em>; pares: <em>preciso/esatto, rapido/celere, aiutare/soccorre</em>.</p>
+            <h3>Gramática e Uso</h3>
+            <ul>
+              <li>Colocações e restrições de seleção; modulação de modalização.</li>
+              <li>Reformulação e autocorreção elegante.</li>
+            </ul>
+            <h3>Atividade Modelo</h3>
+            <p>Reescreva três parágrafos variando registro (coloquial, padrão, formal), mantendo conteúdo.</p>
+            <h3>Exercícios</h3>
+            <ol>
+              <li>Escolha o termo com a conotação pedida.</li>
+              <li>Reescrita com mitigadores/hedges.</li>
+              <li>Escuta simulada: comentário crítico (roteiro de 90s) e tomada de notas.</li>
+            </ol>
+            <h3>Gabarito</h3>
+            <p>Chave comentada com justificativa semântica.</p>
+            <h3>Dica Cultural</h3>
+            <p>A Itália profissional valoriza cortesia estratégica: firmeza com gentileza.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 2 Tradução bidirecional guiada <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Foco em falsos cognatos e calques na tradução PT/IT e IT/PT.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 3 Crítica cultural e editoriais <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Produza críticas culturais sustentadas com análise intertextual.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 4 Negociação complexa e diplomacia <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Simulações de negociação, e-mails complexos e atas.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 5 Escrita criativa controlada <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Microcontos e perfis com foco em voz autoral.</p>
+          </div>
+
+          <button class="accordion__trigger" aria-expanded="false">Cap. 6 Corpus pessoal e autocalibração <span class="tag">estrutura</span></button>
+          <div class="accordion__panel">
+            <p>Construção de banco pessoal de textos, revisão metacognitiva e planos de manutenção.</p>
+          </div>
+
+          <div class="level__revision">
+            <h3>Revisão C2 + Teste de autoavaliação</h3>
+            <p>50 itens analíticos; leitura extensa (~600 palavras); produção 500–700 palavras; escuta simulada de entrevista longa. Inclua gabarito e rubrica.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="apendices" class="card">
+      <h2>Apêndices</h2>
+      <div class="grid grid--2cols">
+        <div>
+          <h3>A. Tabelas verbais essenciais</h3>
+          <p><em>essere, avere</em>, verbos modais e principais tempos.</p>
+        </div>
+        <div>
+          <h3>B. Preposições simples e articuladas</h3>
+          <p><em>di/del, a/al, da/dal, in/nel, su/sul…</em></p>
+        </div>
+        <div>
+          <h3>C. Falsos amigos PT–IT</h3>
+          <p><em>attualmente/atualmente, pretendere/pretender, pasta/massa</em> e outros.</p>
+        </div>
+        <div>
+          <h3>D. Guia de pronúncia</h3>
+          <p>Pares mínimos e dicas de ritmo e entoação.</p>
+        </div>
+        <div>
+          <h3>E. Estratégias de estudo autodidata</h3>
+          <p>SRS, shadowing, <em>narrow listening</em>, ciclos de revisão.</p>
+        </div>
+        <div>
+          <h3>F. Rubricas de fala e escrita</h3>
+          <p>Critérios por nível para autoavaliação.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2024 Italiano do Zero ao C2. Desenvolvido para o estudo autodidata guiado.</p>
+  </footer>
+
+  <div class="modal" id="loginModal" data-modal aria-hidden="true" role="dialog" aria-labelledby="loginTitle">
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__dialog">
+      <button class="modal__close" type="button" data-close aria-label="Fechar janela de login">&times;</button>
+      <h2 id="loginTitle">Entrar na sua sessão</h2>
+      <p class="modal__subtitle">Crie uma sessão local para salvar preferências e acompanhar seu ritmo de estudo.</p>
+      <form id="loginForm" class="modal__form" novalidate>
+        <label class="form-field" for="loginName">
+          <span>Nome</span>
+          <input id="loginName" name="name" type="text" autocomplete="name" required>
+        </label>
+        <label class="form-field" for="loginEmail">
+          <span>Email</span>
+          <input id="loginEmail" name="email" type="email" autocomplete="email" required>
+        </label>
+        <p class="form-hint">As informações ficam apenas no seu dispositivo.</p>
+        <div class="form-actions">
+          <button class="primary-button" type="submit">Continuar</button>
+        </div>
+        <p class="form-error" id="loginError" role="alert" aria-live="assertive"></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="settingsModal" data-modal aria-hidden="true" role="dialog" aria-labelledby="settingsTitle">
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__dialog">
+      <button class="modal__close" type="button" data-close aria-label="Fechar configurações">&times;</button>
+      <h2 id="settingsTitle">Configurações</h2>
+      <p class="modal__subtitle">Personalize a aparência e a leitura do curso.</p>
+      <form id="settingsForm" class="modal__form">
+        <label class="switch">
+          <input type="checkbox" id="prefDarkMode" name="darkMode">
+          <span class="switch__control" aria-hidden="true"></span>
+          <span class="switch__label">Ativar modo escuro</span>
+        </label>
+
+        <label class="form-field" for="prefFontSize">
+          <span>Tamanho do texto</span>
+          <select id="prefFontSize" name="fontSize">
+            <option value="default">Padrão</option>
+            <option value="large">Ampliado</option>
+            <option value="small">Compacto</option>
+          </select>
+        </label>
+
+        <p class="form-hint">As preferências ficam vinculadas à sua sessão local.</p>
+
+        <div class="form-actions">
+          <button class="primary-button" type="submit">Salvar preferências</button>
+          <button class="ghost-button" type="button" id="resetPreferences">Restaurar padrão</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
